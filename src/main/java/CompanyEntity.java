@@ -10,16 +10,16 @@ import java.util.Set;
  * Created by Nick on 18.10.2015.
  */
 @Entity
-@Table(name = "cars")
-public class CarsEntity {
+@Table(name = "company")
+public class CompanyEntity {
     private int id;
     private Integer year;
     private String model;
 
     private Set<EmployeeEntity> employeeSet = new HashSet<EmployeeEntity>();
     @ManyToMany
-    @JoinTable(name = "employee_car",
-            joinColumns = @JoinColumn(name = "car_id"),
+    @JoinTable(name = "employee_company",
+            joinColumns = @JoinColumn(name = "company_id"),
             inverseJoinColumns = @JoinColumn(name = "employee_id"))
     public Set<EmployeeEntity> getEmployeeSet() {
         return employeeSet;

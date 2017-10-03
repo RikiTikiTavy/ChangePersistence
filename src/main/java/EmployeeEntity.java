@@ -13,21 +13,21 @@ public class EmployeeEntity {
     private String firstName;
     private String lastName;
 
-    private Set<CarsEntity> cars = new HashSet<CarsEntity>();
+    private Set<CompanyEntity> cars = new HashSet<CompanyEntity>();
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "employee_car",
+    @JoinTable(name = "employee_company",
             joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "car_id"))
-    public Set<CarsEntity> getCars () {
+            inverseJoinColumns = @JoinColumn(name = "company_id"))
+    public Set<CompanyEntity> getCars () {
         return cars;
     }
 
-    public void setCars(Set<CarsEntity> cars) {
+    public void setCars(Set<CompanyEntity> cars) {
         this.cars = cars;
     }
 
-    public void addCar(CarsEntity car) {
+    public void addCar(CompanyEntity car) {
         cars.add(car);
     }
 
